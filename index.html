@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baker's 1st Birthday Bash! 🎂🏖️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --sandy:   #F5E6D3;
+      --ocean:   #2E86AB;
+      --coral:   #E8505B;
+      --seafoam: #A3D9C8;
+      --white:   #FFFFFF;
+      --dark:    #2C3E50;
+      --light-ocean: #D6EEF8;
+      --light-coral: #FDEAEA;
+      --light-seafoam: #E8F7F3;
+      --gold:    #F4B942;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--sandy);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      background: linear-gradient(160deg, #1a6fa8 0%, #2E86AB 35%, #3BA8A0 65%, #A3D9C8 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 20px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60px;
+      background: var(--sandy);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-bubbles {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      animation: floatBubble 8s infinite ease-in-out;
+    }
+    .bubble:nth-child(1) { width:80px; height:80px; left:5%;  top:15%; animation-delay: 0s; }
+    .bubble:nth-child(2) { width:50px; height:50px; left:20%; top:60%; animation-delay: 1.5s; }
+    .bubble:nth-child(3) { width:120px;height:120px;right:8%; top:10%; animation-delay: 0.8s; }
+    .bubble:nth-child(4) { width:40px; height:40px; right:22%;top:55%; animation-delay: 2.5s; }
+    .bubble:nth-child(5) { width:70px; height:70px; left:45%; top:5%;  animation-delay: 1s; }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-18px) scale(1.05); }
+    }
+
+    .hero-emoji-top {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      text-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .hero h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1.05rem, 3vw, 1.45rem);
+      margin-bottom: 24px;
+      opacity: 0.92;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-intro {
+      max-width: 640px;
+      margin: 0 auto 28px;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      opacity: 0.88;
+      font-weight: 300;
+    }
+
+    .hero-divider {
+      font-size: 2rem;
+      letter-spacing: 0.3em;
+      opacity: 0.75;
+      margin-top: 8px;
+    }
+
+    /* ===================== SECTIONS ===================== */
+    section {
+      padding: 70px 20px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--ocean);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #6b7a8a;
+      font-size: 0.95rem;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    /* ===================== STAY CARDS ===================== */
+    .stay-section {
+      background: var(--white);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px 26px;
+      box-shadow: 0 6px 30px rgba(46,134,171,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 2px solid transparent;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(46,134,171,0.18), 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .card.recommended {
+      border-color: var(--gold);
+      background: linear-gradient(145deg, #fffdf5, #fff8e7);
+      box-shadow: 0 8px 36px rgba(244,185,66,0.22), 0 2px 10px rgba(0,0,0,0.07);
+    }
+
+    .card.recommended:hover {
+      box-shadow: 0 18px 52px rgba(244,185,66,0.30), 0 4px 14px rgba(0,0,0,0.09);
+    }
+
+    .card-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      background: var(--light-ocean);
+      color: var(--ocean);
+      width: fit-content;
+    }
+
+    .card.recommended .card-badge {
+      background: linear-gradient(90deg, var(--gold), #f5a623);
+      color: var(--white);
+    }
+
+    .rec-banner {
+      display: none;
+    }
+
+    .card.recommended .rec-banner {
+      display: block;
+      position: absolute;
+      top: -1px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--gold), #f5a623);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 14px 8px;
+      border-radius: 0 0 12px 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(244,185,66,0.35);
+    }
+
+    .card-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.35rem;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .card-location {
+      font-size: 0.82rem;
+      color: var(--ocean);
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: #4a5568;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    .card-details {
+      font-size: 0.8rem;
+      color: var(--ocean);
+      font-weight: 500;
+      background: var(--light-ocean);
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .card.recommended .card-details {
+      background: rgba(244,185,66,0.12);
+      color: #8a6200;
+    }
+
+    .card-note {
+      font-size: 0.78rem;
+      color: #718096;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #256d8d;
+      transform: scale(1.04);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ocean);
+      border: 2px solid var(--ocean);
+    }
+
+    .btn-secondary:hover {
+      background: var(--ocean);
+      color: var(--white);
+    }
+
+    .card.recommended .btn-primary {
+      background: linear-gradient(90deg, var(--gold), #f5a623);
+      color: var(--white);
+    }
+
+    .card.recommended .btn-primary:hover {
+      background: linear-gradient(90deg, #dba020, #e09020);
+    }
+
+    /* ===================== THINGS TO DO ===================== */
+    .todo-section {
+      background: var(--light-seafoam);
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .activity-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 22px;
+      box-shadow: 0 4px 20px rgba(163,217,200,0.2), 0 1px 6px rgba(0,0,0,0.05);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      border-left: 5px solid var(--seafoam);
+    }
+
+    .activity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(163,217,200,0.3), 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .activity-emoji {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .activity-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .activity-desc {
+      font-size: 0.85rem;
+      color: #4a5568;
+    }
+
+    /* ===================== FOOD ===================== */
+    .food-section {
+      background: var(--sandy);
+    }
+
+    .food-area-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: var(--coral);
+      margin-bottom: 18px;
+      margin-top: 36px;
+      padding-bottom: 8px;
+      border-bottom: 2px dashed rgba(232,80,91,0.3);
+    }
+
+    .food-area-title:first-child {
+      margin-top: 0;
+    }
+
+    .restaurant-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .restaurant-item {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 3px 16px rgba(232,80,91,0.08), 0 1px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 4px solid var(--coral);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .restaurant-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(232,80,91,0.14), 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .restaurant-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .restaurant-desc {
+      font-size: 0.82rem;
+      color: #5a6a7a;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: linear-gradient(160deg, #2E86AB 0%, #3BA8A0 50%, #A3D9C8 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 60px 20px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: var(--sandy);
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+      padding-top: 20px;
+    }
+
+    .footer-cake {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 16px;
+      animation: bounce 2.5s infinite;
+    }
+
+    .footer-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .footer-sub {
+      font-size: 1rem;
+      opacity: 0.88;
+      font-weight: 300;
+    }
+
+    .footer-emojis {
+      margin-top: 24px;
+      font-size: 1.8rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* ===================== NAV ===================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(46,134,171,0.10);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1rem;
+      color: var(--ocean);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 50px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--light-ocean);
+      color: var(--ocean);
+    }
+
+    /* ===================== WAVE DIVIDERS ===================== */
+    .wave-divider {
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 640px) {
+      .nav-inner {
+        justify-content: center;
+      }
+      .nav-brand {
+        width: 100%;
+        text-align: center;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .activities-grid {
+        grid-template-columns: 1fr;
+      }
+      .restaurant-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* scroll-to-top polish */
+    .scroll-top {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 10px 26px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: all 0.2s ease;
+    }
+
+    .scroll-top:hover {
+      background: rgba(255,255,255,0.35);
+    }
+
+    /* confetti-style dots decoration */
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 20px 0 0;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot:nth-child(1) { background: var(--coral); }
+    .dot:nth-child(2) { background: var(--gold); }
+    .dot:nth-child(3) { background: var(--seafoam); }
+    .dot:nth-child(4) { background: var(--ocean); }
+    .dot:nth-child(5) { background: var(--coral); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#hero">🎂 Baker's Bash</a>
+    <div class="nav-links">
+      <a href="#stay">🏡 Stay</a>
+      <a href="#do">🌊 Do</a>
+      <a href="#eat">🍽️ Eat</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+  <span class="hero-emoji-top">🎈🏖️🎉🌊🎂</span>
+  <h1>Baker's 1st Birthday Bash!</h1>
+  <h2>☀️ A Beach Birthday on 30A, Florida 🏖️</h2>
+  <p class="hero-intro">
+    We're celebrating Baker turning <strong>ONE</strong> with a family trip to the beautiful Emerald Coast!
+    Here's everything you need to know about our 30A adventure.
+  </p>
+  <div class="hero-divider">🐚 🌴 🎂 🌴 🐚</div>
+</section>
+
+<!-- WAVE DOWN -->
+<div class="wave-divider" style="background:white; margin-top:-1px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,70 1080,-10 1440,30 L1440,0 L0,0 Z" fill="#F5E6D3"/>
+  </svg>
+</div>
+
+<!-- WHERE TO STAY -->
+<section class="stay-section" id="stay">
+  <div class="section-inner">
+    <h2 class="section-title">🏡 Where to Stay</h2>
+    <p class="section-subtitle">Three great options on scenic 30A — all within easy reach of the beach</p>
+
+    <div class="cards-grid">
+
+      <!-- Option 1: Airbnb -->
+      <div class="card">
+        <span class="card-badge">Option 1</span>
+        <div class="card-title">Airbnb Rental</div>
+        <div class="card-location">📍 30A, Santa Rosa Beach</div>
+        <p class="card-desc">
+          A private vacation rental on scenic 30A — check out the listing for full details, photos, and availability.
+        </p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://www.airbnb.com/rooms/1396444669610726228" target="_blank" rel="noopener">View Listing ↗</a>
+        </div>
+      </div>
+
+      <!-- Option 2: WaterColor Inn -->
+      <div class="card">
+        <span class="card-badge">Option 2</span>
+        <div class="card-title">WaterColor Inn &amp; Resort</div>
+        <div class="card-location">📍 Santa Rosa Beach, FL (on 30A)</div>
+        <p class="card-desc">
+          AAA Four-Diamond resort on 500 acres with 1,400 feet of private beach. Family suites range from 965–1,220 sq ft with daily <em>Treat Suites</em> snacks and games. Multiple pools, Camp WaterColor with lazy river and slides, on-site restaurants, and tennis courts. Rated <strong>#1 Best Family Resort</strong> by Travel + Leisure.
+        </p>
+        <div class="card-details">
+          🛏 Guest Rooms (500 sq ft) &nbsp;•&nbsp; 1-BR Suites (1,010 sq ft) &nbsp;•&nbsp; 2-BR Suites (1,220 sq ft)
+        </div>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://www.watercolorresort.com/" target="_blank" rel="noopener">View Resort ↗</a>
+        </div>
+      </div>
+
+      <!-- Option 3: Seaside Cottage (RECOMMENDED) -->
+      <div class="card recommended">
+        <div class="rec-banner">⭐ Our Pick for You</div>
+        <span class="card-badge">Option 3 ⭐</span>
+        <div class="card-title">Seaside Cottage Rental</div>
+        <div class="card-location">📍 Seaside, FL (on 30A)</div>
+        <p class="card-desc">
+          A charming 2-bedroom cottage right in the heart of Seaside — the most iconic town on 30A. Walkable to the beach, food trucks, shops, and the town amphitheater. Private space with a second bedroom perfect for setting up Baker's crib. Seaside gives you that classic beach-town feel without the Panama City Beach crowds.
+        </p>
+        <div class="card-details">
+          🏠 2 BR / 2 BA &nbsp;•&nbsp; Sleeps 4 &nbsp;•&nbsp; Full Kitchen &nbsp;•&nbsp; Pool Access &nbsp;•&nbsp; Bikes Included
+        </div>
+        <p class="card-note">💡 Search 2BR cottages on Cottage Rental Agency, Homeowner's Collection, or VRBO</p>
+        <div class="btn-group">
+          <a class="btn btn-primary" href="https://www.cottagerentalagency.com/seaside" target="_blank" rel="noopener">Cottage Rental Agency ↗</a>
+          <a class="btn btn-secondary" href="https://www.vrbo.com/vacation-rentals/cottages/usa/florida/north-west/beaches-of-south-walton/seaside" target="_blank" rel="noopener">VRBO Seaside ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-divider" style="background:#E8F7F3; margin-top:-1px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- THINGS TO DO -->
+<section class="todo-section" id="do">
+  <div class="section-inner">
+    <h2 class="section-title">🌊 Things to Do</h2>
+    <p class="section-subtitle">30A is made for family fun — here's what's waiting for you</p>
+
+    <div class="activities-grid">
+
+      <div class="activity-card">
+        <span class="activity-emoji">🏖️</span>
+        <div class="activity-title">Beach Days</div>
+        <div class="activity-desc">30A's white sand beaches and calm turquoise waters are some of the best in the country. Perfect for little ones!</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🚴</span>
+        <div class="activity-title">Bike the Timpoochee Trail</div>
+        <div class="activity-desc">18.6 miles of paved coastal path. Baby trailers and bike seats available at local rental shops along the way.</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🐢</span>
+        <div class="activity-title">30A Sea Life Discovery Center</div>
+        <div class="activity-desc">Interactive programs in Grayton Beach: snorkeling, kayaking, and evening scavenger hunts. A hit with curious little minds!</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🌟</span>
+        <div class="activity-title">Glow Paddle at WaterColor Boathouse</div>
+        <div class="activity-desc">LED kayaks on Western Lake under the stars. A truly magical experience you won't find anywhere else!</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🎨</span>
+        <div class="activity-title">Shacks Art (Grayton Beach)</div>
+        <div class="activity-desc">Kids can make beach snow globes, enjoy face painting, and take art classes. A creative afternoon for the whole family!</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🏊</span>
+        <div class="activity-title">Camp WaterColor</div>
+        <div class="activity-desc">Slides, lazy river, pool cabanas, and food — if you're staying at WaterColor, this is Baker's first waterpark experience!</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🌿</span>
+        <div class="activity-title">Grayton Beach State Park</div>
+        <div class="activity-desc">Beautiful natural scenery, nature trails, and a rare coastal dune lake. One of the most scenic spots on the entire Gulf Coast.</div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-emoji">🛍️</span>
+        <div class="activity-title">Seaside Town Center</div>
+        <div class="activity-desc">Browse shops, catch live music at the amphitheater, and hit up the famous Airstream food trucks. Quintessential 30A!</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-divider" style="background:#F5E6D3; margin-top:-1px;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 C360,0 1080,60 1440,0 L1440,60 L0,60 Z" fill="#E8F7F3"/>
+  </svg>
+</div>
+
+<!-- WHERE TO EAT -->
+<section class="food-section" id="eat">
+  <div class="section-inner">
+    <h2 class="section-title">🍽️ Where to Eat</h2>
+    <p class="section-subtitle">From casual beachside bites to award-winning Gulf-view dining</p>
+
+    <!-- SEASIDE -->
+    <div class="food-area-title">🌊 Seaside</div>
+    <div class="restaurant-list">
+      <div class="restaurant-item">
+        <div class="restaurant-name">🍔 Pickles</div>
+        <div class="restaurant-desc">Burgers, milkshakes, and fries. Super casual, right on 30A. Perfect with kids.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🥘 Great Southern Cafe</div>
+        <div class="restaurant-desc">Southern comfort food: pimento cheese, biscuits &amp; gravy, fried chicken.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🌅 Bud &amp; Alley's</div>
+        <div class="restaurant-desc">Waterfront dining, award-winning. Florida Trend Golden Spoon Hall of Fame.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🍞 Black Bear Bread Co.</div>
+        <div class="restaurant-desc">Amazing bakery and coffee. Great breakfast stop to kick off beach days.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🚚 Seaside Food Trucks</div>
+        <div class="restaurant-desc">The famous Airstream food trucks in the town center. Something for everyone!</div>
+      </div>
+    </div>
+
+    <!-- WATERCOLOR -->
+    <div class="food-area-title">🎨 WaterColor</div>
+    <div class="restaurant-list">
+      <div class="restaurant-item">
+        <div class="restaurant-name">🐟 Fish Out of Water</div>
+        <div class="restaurant-desc">Upscale seafood with Gulf views from the dune boardwalk. Family-friendly.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🍕 Pizza by the Sea</div>
+        <div class="restaurant-desc">Voted "Best Pizza on 30A." Fun atmosphere — a crowd-pleaser for the whole family.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🥞 Scratch Biscuit Kitchen</div>
+        <div class="restaurant-desc">Breakfast spot with great biscuits and Southern fare. Worth the morning trip.</div>
+      </div>
+    </div>
+
+    <!-- ROSEMARY BEACH -->
+    <div class="food-area-title">🌺 Rosemary Beach</div>
+    <div class="restaurant-list">
+      <div class="restaurant-item">
+        <div class="restaurant-name">🦀 Crabby Steve's</div>
+        <div class="restaurant-desc">Casual seafood with a dedicated kids' menu. Exactly what it sounds like — in the best way.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🍸 Havana Beach Bar &amp; Grill</div>
+        <div class="restaurant-desc">AAA Four Diamond restaurant at The Pearl Hotel. Worth a nice dinner out!</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">🥩 Edward's</div>
+        <div class="restaurant-desc">Fine dining with a surprisingly casual vibe. Coastal cuisine done beautifully.</div>
+      </div>
+    </div>
+
+    <!-- 30A GEMS -->
+    <div class="food-area-title">💎 Other 30A Gems</div>
+    <div class="restaurant-list">
+      <div class="restaurant-item">
+        <div class="restaurant-name">🍣 Old Florida Fish House (Seagrove)</div>
+        <div class="restaurant-desc">Fresh Gulf seafood and sushi in a laid-back setting. A local favorite.</div>
+      </div>
+    </div>
+
+    <div class="dots" style="margin-top:40px;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-cake">🎂</span>
+    <div class="footer-title">Happy 1st Birthday, Baker!</div>
+    <p class="footer-sub">Can't wait to celebrate with sand between our toes!</p>
+    <div class="footer-emojis">🏖️ 🌊 🎈 🌴 ☀️</div>
+    <a class="scroll-top" href="#hero">Back to top ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
